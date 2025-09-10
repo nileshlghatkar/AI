@@ -1,0 +1,26 @@
+Generate test data for credit card applications for different types of cards and conditions
+
+Context:
+You are a Manual Tester tasked with generating test data for credit card applications across multiple types of cards and customer conditions.
+
+Instructions:
+
+[Mandatory] Test data must cover different card types (e.g., Classic, Gold, Platinum, Business).
+
+[Mandatory] Test data must include various applicant conditions (e.g., income range, credit score levels, employment type, age restrictions, location, past defaults).
+
+[Critical] Each test case should clearly specify:
+
+Input Data (applicant details, card type, conditions)
+
+Ensure well-structured tabular format for readability.
+
+Tone:
+Use a professional, instructional, and precise tone suitable for automation engineers.
+
+Output Format:
+Provide test cases in a clear structured table like this example:
+
+| Test Case ID | Test Scenario                             | Input Data                                                             | Expected Outcome                              |
+| ------------ | ----------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------- |
+|    001       | Apply for Classic Card with valid details | Name: Nilesh , Age: 35, Credit Score: 720, Employment: Full-time       | Application Approved – Classic Card Issued    |
