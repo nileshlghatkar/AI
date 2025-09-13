@@ -1,0 +1,53 @@
+package com.testleaf.pages;
+
+/**
+ * Page Object for Login Page
+ */
+public class LoginPage {
+
+    private static final String USERNAME_INPUT_ID = "username";
+    private static final String PASSWORD_INPUT_ID = "password";
+    private static final String LOGIN_BUTTON_ID = "Login";
+    private static final String REMEMBER_ME_CHECKBOX_ID = "rememberUn";
+
+    /**
+     * Returns the username input element
+     * @return the username input element
+     */
+    public org.openqa.selenium.WebElement getUsernameInput() {
+        return getDriver().findElementById(USERNAME_INPUT_ID);
+    }
+
+    /**
+     * Returns the password input element
+     * @return the password input element
+     */
+    public org.openqa.selenium.WebElement getPasswordInput() {
+        return getDriver().findElementById(PASSWORD_INPUT_ID);
+    }
+
+    /**
+     * Returns the login button element
+     * @return the login button element
+     */
+    public org.openqa.selenium.WebElement getLoginButton() {
+        return getDriver().findElementById(LOGIN_BUTTON_ID);
+    }
+
+    /**
+     * Returns the remember me checkbox element
+     * @return the remember me checkbox element
+     */
+    public org.openqa.selenium.WebElement getRememberMeCheckbox() {
+        return getDriver().findElementById(REMEMBER_ME_CHECKBOX_ID);
+    }
+
+    /**
+     * Returns the driver instance
+     * @return the driver instance
+     */
+    private org.openqa.selenium.WebDriver getDriver() {
+        // TO DO: implement driver instance retrieval
+        return null;
+    }
+}

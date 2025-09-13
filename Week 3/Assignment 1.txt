@@ -1,0 +1,129 @@
+ Generate feature file for the following applications
+
+    - redbus.in (search)
+
+Feature: Search Buses
+
+  Scenario Outline: Successful search with valid source and destination
+    Given I select "From" dropdown
+    When I type "<source>" into the source field
+    And I select "To" dropdown
+    When I type "<destination>" into the destination field
+    And I select the date of journey as "<date>"
+    And I select the women booking option as "<womenBooking>"
+    When I click the Search button
+    Then I should see the search results
+
+  Examples:
+    | source       | destination | date       | womenBooking |
+    | Bangalore    | Chennai     | 13 Sep, 2025 | false        |
+    | Chennai      | Hyderabad   | 14 Sep, 2025 | true         |
+    | Coimbatore   | Kochi       | 15 Sep, 2025 | false        |
+    | Trivandrum   | Mangalore   | 16 Sep, 2025 | true         |
+    | Mysore       | Salem       | 17 Sep, 2025 | false        |
+
+  Scenario Outline: Invalid source and destination
+    Given I select "From" dropdown
+    When I type "<source>" into the source field
+    And I select "To" dropdown
+    When I type "<destination>" into the destination field
+    And I select the date of journey as "<date>"
+    And I select the women booking option as "<womenBooking>"
+    When I click the Search button
+    Then I should see the error message "Invalid source and destination"
+
+  Examples:
+    | source       | destination | date       | womenBooking |
+    | Invalid      | Chennai     | 13 Sep, 2025 | false        |
+    | Bangalore    | Invalid     | 14 Sep, 2025 | true         |
+
+  Scenario Outline: Empty source and destination
+    Given I select "From" dropdown
+    When I type "<source>" into the source field
+    And I select "To" dropdown
+    When I type "<destination>" into the destination field
+    And I select the date of journey as "<date>"
+    And I select the women booking option as "<womenBooking>"
+    When I click the Search button
+    Then I should see the error message "Please enter source and destination"
+
+  Examples:
+    | source       | destination | date          | womenBooking |
+    |              | Chennai     | 13 Sep, 2025  | false        |
+    | Bangalore    |             | 14 Sep, 2025  | true         |
+	
+	
+	
+	
+--------------------------------------------------------------------------------------------------------------
+ Generate feature file for the following applications
+
+ https://login.salesforce.com/
+
+Feature: Login to OpenTaps
+
+  Scenario Outline: Successful login with valid credentials
+    Given I open the login page
+    When I type "<username>" into the Username field
+    And I type "<password>" into the Password field
+    And I click the Login button
+    Then I should be logged in successfully
+
+  Examples:
+    | username   | password  |
+    | "testuser" | "testpass"|
+    | "admin"    | "admin123"|
+    | "krishna"  | "krishna123"|
+    | "suresh"   | "suresh123"|
+
+  Scenario Outline: Login with invalid username
+    Given I open the login page
+    When I type "<username>" into the Username field
+    And I type "testpass" into the Password field
+    And I click the Login button
+    Then I should see an error message
+
+  Examples:
+    | username   |
+    | "invaliduser"|
+    | "krishna123"|
+
+  Scenario Outline: Login with invalid password
+    Given I open the login page
+    When I type "testuser" into the Username field
+    And I type "<password>" into the Password field
+    And I click the Login button
+    Then I should see an error message
+
+  Examples:
+    | password     |
+    | "invalidpass"|
+    | "krishna1234"|
+
+  Scenario Outline: Login with empty username
+    Given I open the login page
+    When I type "<username>" into the Username field
+    And I type "testpass" into the Password field
+    And I click the Login button
+    Then I should see an error message
+
+  Examples:
+    | username   |
+    | ""         |
+    | "   "      |
+
+  Scenario Outline: Login with empty password
+    Given I open the login page
+    When I type "testuser" into the Username field
+    And I type "<password>" into the Password field
+    And I click the Login button
+    Then I should see an error message
+
+  Examples:
+    | password  |
+    | ""        |
+    | "   "     |	
+	
+	
+	
+	

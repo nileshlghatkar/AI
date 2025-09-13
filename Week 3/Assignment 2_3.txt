@@ -1,0 +1,201 @@
+import { Page, Locator } from '@playwright/test';
+
+/**
+ * Page Object for Login Page
+ */
+export class LoginPage {
+  readonly page: Page;
+
+  /**
+   * Constructor for LoginPage
+   * @param page The Playwright Page instance
+   */
+  constructor(page: Page) {
+    this.page = page;
+    // Define locators here
+  }
+
+  /**
+   * Locator for the login form
+   */
+  readonly loginForm: Locator;
+
+  /**
+   * Locator for the username input field
+   */
+  readonly usernameInput: Locator;
+
+  /**
+   * Locator for the password input field
+   */
+  readonly passwordInput: Locator;
+
+  /**
+   * Locator for the remember me checkbox
+   */
+  readonly rememberMeCheckbox: Locator;
+
+  /**
+   * Locator for the login button
+   */
+  readonly loginButton: Locator;
+
+  /**
+   * Locator for the forgot password link
+   */
+  readonly forgotPasswordLink: Locator;
+
+  /**
+   * Locator for the custom domain container
+   */
+  readonly customDomainContainer: Locator;
+
+  /**
+   * Locator for the custom domain input field
+   */
+  readonly customDomainInput: Locator;
+
+  /**
+   * Locator for the continue button
+   */
+  readonly continueButton: Locator;
+
+  /**
+   * Locator for the back button
+   */
+  readonly backButton: Locator;
+
+  /**
+   * Locator for the chooser error message
+   */
+  readonly chooserErrorMessage: Locator;
+
+  /**
+   * Locator for the chooser label
+   */
+  readonly chooserLabel: Locator;
+
+  /**
+   * Locator for the edit button
+   */
+  readonly editButton: Locator;
+
+  /**
+   * Locator for the edit list
+   */
+  readonly editList: Locator;
+
+  /**
+   * Locator for the save button
+   */
+  readonly saveButton: Locator;
+
+  /**
+   * Locator for the back button in edit mode
+   */
+  readonly backButtonInEditMode: Locator;
+
+  /**
+   * Constructor for LoginPage
+   * @param page The Playwright Page instance
+   */
+  constructor(page: Page) {
+    this.page = page;
+    this.loginForm = page.locator('#login_form');
+    this.usernameInput = this.loginForm.locator('#username');
+    this.passwordInput = this.loginForm.locator('#password');
+    this.rememberMeCheckbox = this.loginForm.locator('#rememberUn');
+    this.loginButton = this.loginForm.locator('#Login');
+    this.forgotPasswordLink = page.locator('#forgot_password_link');
+    this.customDomainContainer = page.locator('#mydomainContainer');
+    this.customDomainInput = this.customDomainContainer.locator('#mydomain');
+    this.continueButton = this.customDomainContainer.locator('#mydomainContinue');
+    this.backButton = this.customDomainContainer.locator('#hint_back_domain');
+    this.chooserErrorMessage = page.locator('#chooser_error');
+    this.chooserLabel = page.locator('#chooser_label');
+    this.editButton = page.locator('#edit');
+    this.editList = page.locator('#editlist');
+    this.saveButton = page.locator('#hint_save_edit');
+    this.backButtonInEditMode = page.locator('#hint_back_edit');
+  }
+
+  /**
+   * Fills the username input field
+   * @param username The username to fill
+   */
+  async fillUsername(username: string): Promise<void> {
+    await this.usernameInput.fill(username);
+  }
+
+  /**
+   * Fills the password input field
+   * @param password The password to fill
+   */
+  async fillPassword(password: string): Promise<void> {
+    await this.passwordInput.fill(password);
+  }
+
+  /**
+   * Toggles the remember me checkbox
+   */
+  async toggleRememberMe(): Promise<void> {
+    await this.rememberMeCheckbox.click();
+  }
+
+  /**
+   * Clicks the login button
+   */
+  async clickLogin(): Promise<void> {
+    await this.loginButton.click();
+  }
+
+  /**
+   * Clicks the forgot password link
+   */
+  async clickForgotPassword(): Promise<void> {
+    await this.forgotPasswordLink.click();
+  }
+
+  /**
+   * Fills the custom domain input field
+   * @param domain The custom domain to fill
+   */
+  async fillCustomDomain(domain: string): Promise<void> {
+    await this.customDomainInput.fill(domain);
+  }
+
+  /**
+   * Clicks the continue button
+   */
+  async clickContinue(): Promise<void> {
+    await this.continueButton.click();
+  }
+
+  /**
+   * Clicks the back button
+   */
+  async clickBack(): Promise<void> {
+    await this.backButton.click();
+  }
+
+  /**
+   * Clicks the edit button
+   */
+  async clickEdit(): Promise<void> {
+    await this.editButton.click();
+  }
+
+  /**
+   * Clicks the save button
+   */
+  async clickSave(): Promise<void> {
+    await this.saveButton.click();
+  }
+
+  /**
+   * Clicks the back button in edit mode
+   */
+  async clickBackInEditMode(): Promise<void> {
+    await this.backButtonInEditMode.click();
+  }
+}
